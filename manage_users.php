@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $last = $_POST['last_name'];
     $email = $_POST['email'];
 
-    // Only hash if password is provided
-    $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
+    // ❌ Store password as plain text for testing (insecure)
+    $password = !empty($_POST['password']) ? $_POST['password'] : null;
 
     try {
         if (isset($_POST['add'])) {
